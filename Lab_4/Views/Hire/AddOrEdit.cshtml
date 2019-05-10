@@ -1,0 +1,89 @@
+﻿@model Lab_4.Models.Hire
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Прокат товарів</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HireId"/>
+            <div class="form-group">
+                <label asp-for="FullNameClient" class="control-label">ПІБ клієнта</label>
+                <input asp-for="FullNameClient" class="form-control" />
+                <span asp-validation-for="FullNameClient" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ClientCode" class="control-label">Серія та номер паспорта</label>
+                    <input asp-for="ClientCode" class="form-control" />
+                    <span asp-validation-for="ClientCode" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ClientPhone" class="control-label">Контактний телефон</label>
+                    <input asp-for="ClientPhone" class="form-control" />
+                    <span asp-validation-for="ClientPhone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClientAddress" class="control-label">Домашня адреса</label>
+                <input asp-for="ClientAddress" class="form-control" />
+                <span asp-validation-for="ClientAddress" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NameGoods" class="control-label">Назва товару</label>
+                <input asp-for="NameGoods" class="form-control" />
+                <span asp-validation-for="NameGoods" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DescriptionGoods" class="control-label">Опис товару</label>
+                <input asp-for="DescriptionGoods" class="form-control" />
+                <span asp-validation-for="DescriptionGoods" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PriceGoods" class="control-label">Ціна товару</label>
+                <input asp-for="PriceGoods" class="form-control" />
+                <span asp-validation-for="PriceGoods" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="DateIssue" class="control-label">Дата видачі</label>
+                    <input asp-for="DateIssue" class="form-control" />
+                    <span asp-validation-for="DateIssue" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="DateReturn" class="control-label">Дата повернення</label>
+                    <input asp-for="DateReturn" class="form-control" />
+                    <span asp-validation-for="DateReturn" class="text-danger"></span>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label asp-for="PriceHireOnDay" class="control-label">Вартість прокату за добу</label>
+                <input asp-for="PriceHireOnDay" class="form-control" />
+                <span asp-validation-for="PriceHireOnDay" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <input type="submit" value="Створити" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-7">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Повернутися до списку замовлень</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

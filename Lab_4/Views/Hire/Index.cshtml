@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Lab_4.Models.Hire>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Прокат товарів</h4>
+<hr />
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullNameClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescriptionGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateIssue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateReturn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceHireOnDay)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Нове замовлення</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullNameClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameGoods)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescriptionGoods)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceGoods)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateIssue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReturn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceHireOnDay)
+                    </td>
+                    <td>
+                        <a asp-action="AddOrEdit" asp-route-id="@item.HireId"><i class="fa fa-marker fa-lg"></i></a> 
+                        <a asp-action="Delete" asp-route-id="@item.HireId" class="text-danger ml-1" onclick="return confirm('Видалити даний запис?')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                    </td>
+                </tr>
+         }
+    </tbody>
+</table>
